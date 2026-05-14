@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="text-primary fw-bold text-uppercase mb-2">About Organic</p>
+        <h1 class="display-4 fw-bold">Fresh groceries, honest sourcing, happier kitchens.</h1>
+        <p class="fs-5 text-muted mt-3">We bring farm-fresh produce, pantry staples, bakery items, and everyday essentials to your doorstep with a clean shopping experience.</p>
+        <div class="d-flex gap-3 mt-4">
+          <a href="{% url 'pages:shop' %}" class="btn btn-primary rounded-pill px-4 py-3">Shop Now</a>
+          <a href="{% url 'pages:contact' %}" class="btn btn-outline-dark rounded-pill px-4 py-3">Contact Us</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'images/banner-ad-1.jpg' %}" class="img-fluid rounded-4 shadow-sm" alt="Fresh organic food">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 p-4">
+          <svg width="50" height="50" class="text-primary mb-3"><use xlink:href="#fresh"></use></svg>
+          <h4>Fresh from farm</h4>
+          <p class="text-muted mb-0">Produce is selected carefully so your basket looks like someone cared, a rare event in modern logistics.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 p-4">
+          <svg width="50" height="50" class="text-primary mb-3"><use xlink:href="#organic"></use></svg>
+          <h4>Organic quality</h4>
+          <p class="text-muted mb-0">We highlight clean ingredients, trusted suppliers, and products that make everyday meals easier.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 p-4">
+          <svg width="50" height="50" class="text-primary mb-3"><use xlink:href="#delivery"></use></svg>
+          <h4>Fast delivery</h4>
+          <p class="text-muted mb-0">Doorstep delivery keeps you out of long checkout lines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <div class="row text-center g-4">
+      <div class="col-md-3 col-6"><h2 class="fw-bold text-primary">14k+</h2><p class="text-uppercase mb-0">Product Varieties</p></div>
+      <div class="col-md-3 col-6"><h2 class="fw-bold text-primary">50k+</h2><p class="text-uppercase mb-0">Happy Customers</p></div>
+      <div class="col-md-3 col-6"><h2 class="fw-bold text-primary">10+</h2><p class="text-uppercase mb-0">Store Locations</p></div>
+      <div class="col-md-3 col-6"><h2 class="fw-bold text-primary">24h</h2><p class="text-uppercase mb-0">Support</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

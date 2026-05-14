@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <h1 class="display-4 fw-bold">Style Guide</h1>
+    <p class="fs-5 text-muted">Reusable buttons, cards, forms, and typography for this Organic website.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h2>Typography</h2>
+        <h1>Heading One</h1>
+        <h2>Heading Two</h2>
+        <h3>Heading Three</h3>
+        <p class="fs-5 text-muted">This is lead body text for page introductions and product highlights.</p>
+        <p>Regular paragraph text for descriptions, blog posts, checkout instructions, and style guide content.</p>
+      </div>
+      <div class="col-lg-6">
+        <h2>Buttons</h2>
+        <div class="d-flex flex-wrap gap-3 mb-5">
+          <a href="#" class="btn btn-primary rounded-pill px-4">Primary</a>
+          <a href="#" class="btn btn-dark rounded-pill px-4">Dark</a>
+          <a href="#" class="btn btn-outline-dark rounded-pill px-4">Outline</a>
+        </div>
+        <h2>Form Fields</h2>
+        <input type="text" class="form-control form-control-lg mb-3" placeholder="Large input">
+        <select class="form-select form-select-lg mb-3"><option>All Categories</option><option>Fruits</option><option>Bakery</option></select>
+        <textarea class="form-control" rows="4" placeholder="Textarea"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <h2 class="mb-4">Cards</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card border-0 rounded-4 shadow-sm p-4"><h4>Info card</h4><p class="text-muted mb-0">Useful for page sections and service highlights.</p></div></div>
+      <div class="col-md-4"><div class="card border-0 rounded-4 shadow-sm p-4 bg-primary text-light"><h4 class="text-light">Primary card</h4><p class="mb-0">Use for fresh offers and calls to action.</p></div></div>
+      <div class="col-md-4"><div class="card border-0 rounded-4 shadow-sm p-4 bg-dark text-light"><h4 class="text-light">Dark card</h4><p class="mb-0">Use for contrast sections and promos.</p></div></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

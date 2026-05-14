@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="text-primary fw-bold text-uppercase mb-2">Organic Category</p>
+        <h1 class="display-4 fw-bold">{{ category_info.title }}</h1>
+        <p class="fs-5 text-muted mt-3">{{ category_info.subtitle }}</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a href="{% url 'pages:shop' %}" class="btn btn-primary rounded-pill px-4 py-3">Shop All</a>
+          <a href="{% url 'category' %}" class="btn btn-outline-dark rounded-pill px-4 py-3">All Categories</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <img src="{% static category_info.hero_image %}" class="img-fluid rounded-4 shadow-sm" alt="{{ category_info.title }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 overflow-hidden">
+  <div class="container-lg">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+      <h2 class="section-title mb-0">Browse Categories</h2>
+      <a href="{% url 'pages:shop' %}" class="btn btn-primary rounded-1">View All</a>
+    </div>
+    <div class="row g-4">
+      {% for item in category_nav %}
+      <div class="col-6 col-sm-4 col-lg-2 text-center">
+        <a href="{% url item.url_name %}" class="nav-link">
+          <img src="{% static item.image %}" class="rounded-circle img-fluid" alt="{{ item.title }}">
+          <h4 class="fs-6 mt-3 fw-normal category-title">{{ item.title }}</h4>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pb-5">
+  <div class="container-lg">
+    <div class="d-flex flex-wrap justify-content-between align-items-center my-4">
+      <h2 class="section-title mb-0">{{ category_info.title }} Products</h2>
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-dark rounded-pill">Popular</button>
+        <button class="btn btn-outline-dark rounded-pill">Newest</button>
+        <button class="btn btn-outline-dark rounded-pill">Sale</button>
+      </div>
+    </div>
+
+    <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+      {% for product in category_products %}
+      <div class="col mb-4">
+        <div class="product-item h-100">
+          <figure>
+            <a href="{% url 'pages:single_product' %}" title="{{ product.name }}">
+              <img src="{% static product.image %}" alt="{{ product.name }}" class="tab-image">
+            </a>
+          </figure>
+          <div class="d-flex flex-column text-center">
+            <span class="text-muted small text-uppercase">{{ category_info.title }}</span>
+            <h3 class="fs-6 fw-normal">{{ product.name }}</h3>
+            <div>
+              <span class="rating">
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+              </span>
+              <span>(88)</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <del>${{ product.old_price }}</del>
+              <span class="text-dark fw-semibold">${{ product.price }}</span>
+              <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">{{ product.badge }}</span>
+            </div>
+            <div class="button-area p-3 pt-0">
+              <a href="{% url 'pages:cart' %}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart w-100">
+                <svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

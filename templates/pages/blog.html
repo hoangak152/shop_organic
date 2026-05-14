@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <h1 class="display-4 fw-bold">Organic Blog</h1>
+    <p class="fs-5 text-muted">Tips, recipes, and grocery wisdom.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row g-4">
+      {% for post in posts %}
+      <div class="col-lg-4 col-md-6">
+        <article class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden">
+          <a href="{% url 'pages:single_post' %}"><img src="{% static post.image %}" class="card-img-top" alt="{{ post.title }}"></a>
+          <div class="card-body p-4">
+            <p class="text-primary small text-uppercase fw-bold">{{ post.date }}</p>
+            <h3 class="h4"><a href="{% url 'pages:single_post' %}" class="text-dark text-decoration-none">{{ post.title }}</a></h3>
+            <p class="text-muted">{{ post.excerpt }}</p>
+            <a href="{% url 'pages:single_post' %}" class="btn btn-outline-dark rounded-pill">Read More</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

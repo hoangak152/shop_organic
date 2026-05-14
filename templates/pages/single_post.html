@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<article class="py-5">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <p class="text-primary fw-bold text-uppercase">{{ post.date }}</p>
+        <h1 class="display-4 fw-bold mb-4">{{ post.title }}</h1>
+        <img src="{% static post.image %}" class="img-fluid rounded-4 mb-5" alt="{{ post.title }}">
+        <p class="fs-5 text-muted">Fresh food lasts longer when it is stored properly, washed at the right time, and kept away from items that speed up ripening.</p>
+        <h2 class="h3 mt-5">Plan before you buy</h2>
+        <p>Build a weekly basket around meals you actually cook. Start with vegetables, grains, dairy, fruit, and two or three flexible staples.</p>
+        <h2 class="h3 mt-5">Store produce correctly</h2>
+        <p>Keep leafy greens dry, separate ethylene-producing fruit, and use airtight containers for cut produce. Small habits protect freshness and save money.</p>
+        <blockquote class="border-start border-primary border-4 ps-4 py-2 my-5 fs-4">Good groceries are only useful when they survive long enough to become dinner.</blockquote>
+        <p>Use your pantry for fast meals: oats, nuts, grains, pasta, sauces, and spices can turn fresh produce into something presentable.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="py-5 bg-light">
+  <div class="container-lg">
+    <h2 class="section-title mb-4">More Posts</h2>
+    <div class="row g-4">
+      {% for item in posts %}
+      <div class="col-md-6"><div class="card border-0 rounded-4 shadow-sm overflow-hidden"><img src="{% static item.image %}" class="card-img-top" alt="{{ item.title }}"><div class="card-body p-4"><p class="text-primary small fw-bold text-uppercase">{{ item.date }}</p><h3 class="h4">{{ item.title }}</h3><p class="text-muted">{{ item.excerpt }}</p></div></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
